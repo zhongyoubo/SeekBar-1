@@ -22,6 +22,7 @@
         android:max="80"
         android:maxHeight="10dp"
         android:progress="0"
+        android:indeterminateOnly="false"
         android:progressDrawable="@drawable/seekbar_style"
         android:splitTrack="false"
         android:thumb="@mipmap/icon_ellipse"

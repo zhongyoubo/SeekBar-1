@@ -98,8 +98,8 @@ public class TSeekBar extends SeekBar {
         //设置控件的padding 给提示文字留出位置
         setPadding((int) Math.ceil(img_width) / 2, 0, (int) Math.ceil(img_height) / 2, (int) Math.ceil(img_height) + 10);
         textAlign = TEXT_ALIGN_CENTER_HORIZONTAL | TEXT_ALIGN_CENTER_VERTICAL;
-    }
 
+    }
     /**
      * 获取图片的宽高
      */
@@ -107,8 +107,6 @@ public class TSeekBar extends SeekBar {
         map = BitmapFactory.decodeResource(getResources(), img);
         img_width = map.getWidth();
         img_height = map.getHeight();
-
-
     }
 
     @Override
