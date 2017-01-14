@@ -8,6 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.SeekBar;
@@ -115,8 +116,9 @@ public class TSeekBar extends SeekBar {
         Paint paints =new Paint();
         paints.setColor(getResources().getColor(R.color.colorAccent));
 
-        Rect rect=new Rect(getLeft(),getTop()-15,rect_seek.right-10,rect_seek.bottom-10);
-        canvas.drawRect(rect,paints);
+        RectF rect=new RectF(getPaddingLeft()-15,rect_seek.top-15,
+                getPaddingLeft()+rect_seek.right+15,rect_seek.bottom+15);
+        canvas.drawRoundRect(rect,30,30,paints);
 
 
         super.onDraw(canvas);
@@ -126,6 +128,7 @@ public class TSeekBar extends SeekBar {
         float bm_y = rect_seek.height() + 20;
 //        //计算文字的中心位置在bitmap
         float text_x = rect_seek.width() * getProgress() / getMax() + (img_width - numTextWidth) / 2;
+
         canvas.drawBitmap(map, bm_x, bm_y, paint);//画背景图
         // canvas.drawRoundRect();
         canvas.drawText(mTitleText, text_x, (float) (textBaselineY + bm_y + (0.16 * img_height / 2)), paint);//画文字
