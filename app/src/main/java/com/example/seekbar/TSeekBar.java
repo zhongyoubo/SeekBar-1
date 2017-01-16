@@ -10,6 +10,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.SeekBar;
 
@@ -115,10 +116,12 @@ public class TSeekBar extends SeekBar {
         rect_seek = this.getProgressDrawable().getBounds();
         Paint paints =new Paint();
         paints.setColor(getResources().getColor(R.color.colorAccent));
+        paints.setAntiAlias(true);
+        RectF rect=new RectF(getPaddingLeft()-10,rect_seek.top-10,
+                getPaddingLeft()+rect_seek.right+10,rect_seek.bottom+10);
+        canvas.drawRoundRect(rect,15,15,paints); // 总觉得哪里不对
 
-        RectF rect=new RectF(getPaddingLeft()-15,rect_seek.top-15,
-                getPaddingLeft()+rect_seek.right+15,rect_seek.bottom+15);
-        canvas.drawRoundRect(rect,30,30,paints);
+
 
 
         super.onDraw(canvas);
